@@ -20,10 +20,12 @@ running the demo on an Android device. For an explanation of the source, see
 <!-- TODO(b/124116863): Add app screenshot. -->
 
 ### Model
-For details of the model used, visit [Image classification](https://www.tensorflow.org/lite/models/image_classification/overview).
+Inside Assests folder zip file is there.
 
-Downloading, extracting, and placing the model in the assets folder is managed
-automatically by download.gradle.
+Resnet50 
+16 batch size
+100 epochs
+Teachable ML
 
 ## Requirements
 
