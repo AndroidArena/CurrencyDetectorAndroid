@@ -1,4 +1,4 @@
-# TensorFlow Lite image classification Android example application
+# TensorFlow Lite image classification Android Currency Detector App
 
 ## Overview
 
