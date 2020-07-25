@@ -1,4 +1,4 @@
-# TensorFlow Lite image classification Android example application
+# Android Currency Detector App using TensorFlow Lite image classification
 
 ## Overview
 
@@ -20,10 +20,12 @@ running the demo on an Android device. For an explanation of the source, see
 <!-- TODO(b/124116863): Add app screenshot. -->
 
 ### Model
-For details of the model used, visit [Image classification](https://www.tensorflow.org/lite/models/image_classification/overview).
+Inside Assests folder zip file is there.
 
-Downloading, extracting, and placing the model in the assets folder is managed
-automatically by download.gradle.
+Resnet50 
+16 batch size
+100 epochs
+Teachable ML
 
 ## Requirements
 
@@ -43,7 +45,7 @@ Clone the TensorFlow examples GitHub repository to your computer to get the demo
 application.
 
 ```
-git clone https://github.com/tensorflow/examples
+https://github.com/AndroidArena/CurrencyDetectorAndroid.git
 ```
 
 Open the TensorFlow source code in Android Studio. To do this, open Android
