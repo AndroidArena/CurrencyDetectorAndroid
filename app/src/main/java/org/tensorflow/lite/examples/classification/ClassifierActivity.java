@@ -39,7 +39,7 @@ public class ClassifierActivity extends CameraActivity implements OnImageAvailab
   private Bitmap rgbFrameBitmap = null;
   private long lastProcessingTimeMs;
   private Integer sensorOrientation;
-  private Classifier classifier;
+  public Classifier classifier;
   private BorderedText borderedText;
   /** Input image size of the model along x axis. */
   private int imageSizeX;

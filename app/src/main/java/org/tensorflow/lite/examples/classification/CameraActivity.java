@@ -53,6 +53,8 @@ import android.widget.Toast;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import java.nio.ByteBuffer;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import org.tensorflow.lite.examples.classification.env.ImageUtils;
 import org.tensorflow.lite.examples.classification.env.Logger;
 import org.tensorflow.lite.examples.classification.tflite.Classifier.Device;
@@ -100,6 +102,7 @@ public abstract class CameraActivity extends AppCompatActivity
   private Spinner deviceSpinner;
   private TextView threadsTextView;
 
+  // private Model model = Model.QUANTIZED;
   private Model model = Model.FLOAT;
   private Device device = Device.CPU;
   private int numThreads = -1;
@@ -547,9 +550,12 @@ public abstract class CameraActivity extends AppCompatActivity
         return 0;
     }
   }
-
+boolean hun = false;
+  boolean five = false;
+  boolean ten = false;
   @UiThread
   protected void showResultsInBottomSheet(List<Recognition> results) {
+
     if (results != null && results.size() >= 3) {
       Recognition recognition = results.get(0);
       if (recognition != null) {
@@ -559,14 +565,21 @@ public abstract class CameraActivity extends AppCompatActivity
                   String.format("%.2f", (100 * recognition.getConfidence())) + "%");
         float confi = 100 * recognition.getConfidence();
         try {
-          if (recognitionTextView.getText().toString().equalsIgnoreCase("500") && confi > 99.5) {
-
+          if (!five && recognitionTextView.getText().toString().equalsIgnoreCase("500") && confi>99 ) {
             mp2.start();
-
-          } else if (recognitionTextView.getText().toString().equalsIgnoreCase("100") && confi > 99.5) {
+            five =true;
+            ten = false;
+            hun = false;
+          } else if (!hun&& recognitionTextView.getText().toString().equalsIgnoreCase("100")&& confi>99) {
             mp.start();
-          } else if (recognitionTextView.getText().toString().equalsIgnoreCase("10") && confi > 90) {
+            hun = true;
+            five =false;
+            ten = false;
+          } else if (!ten&&recognitionTextView.getText().toString().equalsIgnoreCase("10")&& confi>90 ) {
             mp1.start();
+            ten  =true;
+            five =false;
+            hun = false;
           }
         }catch (Exception e){
           e.printStackTrace();
